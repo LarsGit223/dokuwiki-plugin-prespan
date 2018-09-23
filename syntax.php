@@ -62,10 +62,12 @@ class syntax_plugin_prespan extends DokuWiki_Syntax_Plugin {
      */
     function connectTo($mode) {
         $this->Lexer->addEntryPattern('<prespan>(?=.*</prespan>)', $mode, 'plugin_prespan');
+        $this->Lexer->addEntryPattern('\!\[(?=.*\]\!)', $mode, 'plugin_prespan');
     }
 
     function postConnect() {
         $this->Lexer->addExitPattern('</prespan>', 'plugin_prespan');
+        $this->Lexer->addExitPattern('\]\!', 'plugin_prespan');
     }
 
     /**
