@@ -1,3 +1,9 @@
+/**
+ * CSS code for prespan Plugin
+ *
+ * @author     LarsDW223
+ * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ */
 .prespan {
     white-space: pre;
 }

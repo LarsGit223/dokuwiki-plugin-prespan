@@ -1,10 +1,10 @@
 <?php
 /**
- * wpre Plugin: for output using word wrapped preformatted text
- * Syntax:     <wpre> text </wpre>
+ * prespan Plugin: for output of text spans with preserved spaces
+ * Syntax:     <prespan>text</prespan> or ![text]!
  *
+ * @author     LarsDW223
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
- * @author     Max Binshtok (max.binshtok@gmail.com)
  */
  
 if(!defined('DOKU_INC')) define('DOKU_INC',realpath(dirname(__FILE__).'/../../').'/');
@@ -16,21 +16,7 @@ require_once(DOKU_PLUGIN.'syntax.php');
  * need to inherit from this class
  */
 class syntax_plugin_prespan extends DokuWiki_Syntax_Plugin {
- 
-    /**
-     * return some info
-     */
-    function getInfo(){
-        return array(
-          'author' => 'Max Binshtok',
-          'email'  => 'max.binshtok@gmail.com',
-          'date'   => '2010-02-12',
-          'name'   => 'wpre Plugin',
-          'desc'   => 'for output using word wrapped preformatted text',
-          'url'    => 'http://www.dokuwiki.org/plugin:wpre',
-        );
-    }
- 
+
     /**
      * What kind of syntax are we?
      */
@@ -38,7 +24,6 @@ class syntax_plugin_prespan extends DokuWiki_Syntax_Plugin {
         return 'formatting';
     }
 
- 
     /**
      * What about paragraphs? (optional)
      */
@@ -53,6 +38,9 @@ class syntax_plugin_prespan extends DokuWiki_Syntax_Plugin {
         return 195;
     }
 
+    /**
+     * Return allowed nested types.
+     */
     function getAllowedTypes(){
         return array('formatting', 'substition', 'disabled');
     }
@@ -104,9 +92,7 @@ class syntax_plugin_prespan extends DokuWiki_Syntax_Plugin {
             return true;
         }
         return false;
-    }   
+    }
 }
  
 //Setup VIM: ex: et ts=4 enc=utf-8 :
- 
-?>
