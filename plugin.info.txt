@@ -1,0 +1,7 @@
+base   prespan
+author LarsDW223
+email  -
+date   2018-09-23
+name   Prespan Plugin
+desc   Create text spans which preserve spaces
+url    https://www.dokuwiki.org/plugin:prespan
